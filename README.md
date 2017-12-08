@@ -51,16 +51,30 @@ Firstly, we create a simple perceptron. A rudimentary model without any complexi
     Formatted Output -> y.
     Weights are nothing but likeablity of that respective input to be chosen.
     Weight is high for an input branch which gives max. output.
+    Bias will give a basic shift to the output, it avoids nullification of a cell.
 An analogy:  
 Inputs are from our senses or previous neurons.  
 Weights are the synapes that connects the neurons.  
-Function cells are neuron cells.  
-Each Neuron cell has the functional equation,
+Function cells are neuron cells. 
 
-    Y= Wx+ b
-    Where, Y is output,
-    W is Weight,
-    b is bias.
+    Each Neuron cell has the functional equation,  
+     Y= Wx+ b
+    Where Y is output,
+          W is Weight,
+          b is bias.  
+The whole thing can be represented mathematically as,  
+<p align="center">
+<img src="/media/Perceptron.jpg" alt="Perceptron" width="1000" height="600">
+</p>  
+
+*Here comes Deep Neural Networks:*  
+If we add more layers in a neural network to make it more accurate and handle larger data, it's a deep neural network.  
+It works the same way as shown above except it has more layers of it's repeated selfs.  
+<p align="center">
+<img src="/media/neural_network.jpg" alt="DNN" width="700" height="350">
+</p>  
+
+Ahh Ahh, not so fast. We have to add more things to this dumb network to make it smarter.  
 
 
 **Step 4:** Train the model using the data matrices.
