@@ -1,4 +1,3 @@
-#import image_process as ip
 import pickler as pkl
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
@@ -53,7 +52,6 @@ train_step=tf.train.AdamOptimizer().minimize(loss=loss)
 correct_prediction = tf.equal(tf.argmax(operation, 1), label_ph)
 
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-#ALLEN, till here.................................
 
 def label_changer(dictionary):
     for index,value in enumerate(dictionary["labels"]):
@@ -103,7 +101,6 @@ if __name__=="__main__":
             print(images_batch.shape)
             labels_batch = dic['labels'][indices]
             print((labels_batch.shape))
-# ALLEN from here I cannot understand the stuff happens
             if i % 100 == 0:
                 train_accuracy = sess.run(accuracy, feed_dict={
                     img_ph: images_batch, label_ph: labels_batch})
