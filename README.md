@@ -3,7 +3,7 @@
 An Image classifier to identify whether the given image is Batman or Superman.  
 
 <p align="center">
-<img src="/media/giphy.gif" alt="bvs" width="600" height="400">
+<img src="https://github.com/perseus784/BvS/blob/master/media/giphy.gif" alt="bvs" width="600" height="400">
 </p>  
 
 ## Building a simple Neural Network:
@@ -13,7 +13,7 @@ An Image classifier to identify whether the given image is Batman or Superman.
 Firstly, we will have to collect huge amount of data to get atleast a significant amount of accuracy. I've collected 300 images from google. While it cannot be considered as decent data at all, it is enough to demonstrate the process.
 
 <p align="center">
-<img src="/media/image_collection.png" alt="All bat" width="650" height="300">
+<img src="https://github.com/perseus784/BvS/blob/master/media/image_collection.png" alt="All bat" width="650" height="300">
 </p>
 
 These Images may come of as different resolutions and formats. We don't need higher resolution images. So, we convert all of them into a standard 30 * 30 resolution in .jpg format.
@@ -22,7 +22,7 @@ A simple program to do this can be found [**here**](https://github.com/perseus78
 Input -> Folder containing collection of images.  
 
 <p align="center">
-<img src="/media/convert.png" alt="Conversion" width="650" height="300">
+<img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" alt="Conversion" width="650" height="300">
 </p>
 
 **Step 2:** Convert Images into Data matrices.  
@@ -31,7 +31,7 @@ Our program cannot directly take image inputs. So, we need to convert it into a 
 *Numbers!*. Yes, it can handle numbers better than us (Unless you are an asian).  
 It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py).  
 <p align="center">
-<img src="/media/club.png" alt="Conversion to table" width="900" height="350">
+<img src="https://github.com/perseus784/BvS/blob/master/media/club.png" alt="Conversion to table" width="900" height="350">
 </p>  
  
 **Step 3:** Create a Neural Network Tensorflow graph.  
@@ -41,12 +41,12 @@ A Neural Network is a Bio-inspired mathematical model based on how our brains wo
 ---
 ***How do we learn?*** It was a mystery for millions of years ever since we were conscious. Our brains consist of billions of neurons. These neurons communicate to each other by Synapses. By recent advancements, it is found that whenever we learn new stuff these synapses between these neurons gets strong. *Thus, we learn!*  
 <p align="center">
-<img src="/media/brain-cell-neuron.gif" alt="neuron" width="500" height="350">
+<img src="https://github.com/perseus784/BvS/blob/master/media/brain-cell-neuron.gif" alt="neuron" width="500" height="350">
 </p>  
 This process is inspired and applied in machine learning. While in early periods there was neither enough data nor the processing power to do the math. Luckily, we are in the golden age of Information.  
 Firstly, we create a simple perceptron. A rudimentary model without any complexities. It has,  
 <p align="center">
-<img src="/media/perc.png" alt="neuron" width="600" height="300">
+<img src="https://github.com/perseus784/BvS/blob/master/media/perc.png" alt="neuron" width="600" height="300">
 </p>  
 
     Inputs -> x1, x2, x3.
@@ -67,22 +67,64 @@ Function cells are neuron cells.
           b is bias.  
 The whole thing can be represented mathematically as,  
 <p align="center">
-<img src="/media/Perceptron.jpg" alt="Perceptron" width="1000" height="600">
+<img src="https://github.com/perseus784/BvS/blob/master/media/Perceptron.jpg" alt="Perceptron" width="1000" height="600">
 </p>  
 
 *Here comes Deep Neural Networks:*  
 If we add more layers in a neural network to make it more accurate and handle larger data, it's a deep neural network.  
-It works the same way as shown above except it has more layers of it's repeated selfs.    
- 
- A neural network with three hidden layers and one output layer is built for our case.
- We have successfully created a simple [**neural network**](https://github.com/perseus784/BvS/blob/master/neural_network.py).  
-   
-
+It works the same way as shown above, except it has more layers of it's repeated selfs.  
 <p align="center">
-<img src="/media/neural_network.jpg" alt="DNN" width="700" height="350">
+<img src="https://github.com/perseus784/BvS/blob/master/media/neural_network.jpg" alt="DNN" width="700" height="350">
+</p>
+ 
+ A Neural Network with three hidden layers and one output layer is built for our case[**[link]**](https://github.com/perseus784/BvS/blob/master/neural_network.py):
+   
+    #build the skeleton dictionaries
+    hidden_lr1={'weight':tf.Variable(tf.random_normal([image_shape,n_hl1])),'biases':tf.Variable(tf.random_normal([n_hl1]))}
+    hidden_lr2={'weight':tf.Variable(tf.random_normal([n_hl1,n_hl2])),'biases':tf.Variable(tf.random_normal([n_hl2]))}
+    hidden_lr3={'weight':tf.Variable(tf.random_normal([n_hl2,n_hl3])),'biases':tf.Variable(tf.random_normal([n_hl3]))}
+    output_layer={'weight':tf.Variable(tf.random_normal([n_hl3,groups])),'biases':tf.Variable(tf.random_normal([groups]))}
+
+    #Operation -> Y=Wx+b
+    l1=tf.add(tf.matmul(data,hidden_lr1['weight']),hidden_lr1['biases'])
+    l1=tf.nn.relu(l1)
+
+    l2 = tf.add(tf.matmul(l1, hidden_lr2['weight']), hidden_lr2['biases'])
+    l2 = tf.nn.relu(l2)
+
+    l3 = tf.add(tf.matmul(l2, hidden_lr3['weight']), hidden_lr3['biases'])
+    l3 = tf.nn.relu(l3)
+     
+    #Y can be obtained from this layer 
+    output = tf.add(tf.matmul(l3, output_layer['weight']), output_layer['biases'])
+
+  
+
+**Step 4:** Train the model using the data matrices.  
+
+Now that we have created our Neural Network model, we throw in some inputs to it and get some output.  
+Awful surprise, the outputs are nowhere realted to the expected inputs at all!   
+<p align="center">
+<img src="https://github.com/perseus784/BvS/blob/master/media/dispmnt.jpg" alt="disp" width="550" height="300">
 </p>  
 
-**Step 4:** Train the model using the data matrices.
+*So, what is the problem?*  
+Our Neural Network needs to be trained. Like our own brains, the model should be trained before it can take some test.  
+<p align="center">
+<img src="https://github.com/perseus784/BvS/blob/master/media/kungfu.gif" alt="kungfu" width="650" height="350">
+</p>
+
+**Training:**  
+Training the model means teaching it why it is wrong and how it can rectify the mistake. This can be done using a cost fucntion.  
+A ***Cost Function*** is the measurement squared error between the actual and the predicted outputs.  
+Paraphrasing: By how much magnitude our model is wrong about the predicted output?
+    
+    Squared error for a single prediction = (predicted - actual)²
+    Error for overall prediction:
+                 Cost = ∑ ( predicted - actual )²
+
+Once the Cost is calculated, we have to minimize it.  
+This minimisation can be done easily using many methods. Now it's an optimization problem.
 
 
 **Step 5:** Test the model that was created with a new set of data.
