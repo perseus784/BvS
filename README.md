@@ -72,17 +72,15 @@ The whole thing can be represented mathematically as,
 
 *Here comes Deep Neural Networks:*  
 If we add more layers in a neural network to make it more accurate and handle larger data, it's a deep neural network.  
-It works the same way as shown above except it has more layers of it's repeated selfs.  
+It works the same way as shown above except it has more layers of it's repeated selfs.    
+ 
+ A neural network with three hidden layers and one output layer is built for our case.
+ We have successfully created a simple [**neural network**](https://github.com/perseus784/BvS/blob/master/neural_network.py).  
+   
+
 <p align="center">
 <img src="/media/neural_network.jpg" alt="DNN" width="700" height="350">
 </p>  
-
-Ahh Ahh, not so fast. We have to add more things to make it smarter.  
-We give some inputs to the network we've built and it gives us some output back, Simple right!.
-Now the network has no kind of huiding or rewarding system to go towards the right direction.
-The predicted output is compared with the actual output, from that loss is calculated.
-This loss should be reduced. A cost function is defined and it has to be minimized using various methods.  
-
 
 **Step 4:** Train the model using the data matrices.
 
