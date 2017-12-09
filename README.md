@@ -1,7 +1,10 @@
 # BvS
-**Dawn of AI**
+**Dawn of AI**  
+An Image classifier to identify whether the given image is Batman or Superman.  
 
-An Image classifier to identify whether the given image is Batman or Superman.
+<p align="center">
+<img src="/media/giphy.gif" alt="bvs" width="600" height="400">
+</p>  
 
 ## Building a simple Neural Network:
 
@@ -36,7 +39,7 @@ Okay, this is gonna be long but interesting. Lets begin!
 
 A Neural Network is a Bio-inspired mathematical model based on how our brains work.  
 ---
-***How do we learn?*** It was a mystery for millions of years ever since we were conscious. Our brains consist of billions of neurons. These neurons communicate to each other by Synapses. By recent advancements, it is found that whenever we learn new stuff these synapses between these neurons gets strong. Thus, we learn!  
+***How do we learn?*** It was a mystery for millions of years ever since we were conscious. Our brains consist of billions of neurons. These neurons communicate to each other by Synapses. By recent advancements, it is found that whenever we learn new stuff these synapses between these neurons gets strong. *Thus, we learn!*  
 <p align="center">
 <img src="/media/brain-cell-neuron.gif" alt="neuron" width="500" height="350">
 </p>  
@@ -74,7 +77,11 @@ It works the same way as shown above except it has more layers of it's repeated 
 <img src="/media/neural_network.jpg" alt="DNN" width="700" height="350">
 </p>  
 
-Ahh Ahh, not so fast. We have to add more things to this dumb network to make it smarter.  
+Ahh Ahh, not so fast. We have to add more things to make it smarter.  
+We give some inputs to the network we've built and it gives us some output back, Simple right!.
+Now the network has no kind of huiding or rewarding system to go towards the right direction.
+The predicted output is compared with the actual output, from that loss is calculated.
+This loss should be reduced. A cost function is defined and it has to be minimized using various methods.  
 
 
 **Step 4:** Train the model using the data matrices.
