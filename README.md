@@ -6,9 +6,9 @@ An Image classifier to identify whether the given image is Batman or Superman.
 <img src="https://github.com/perseus784/BvS/blob/master/media/giphy.gif" alt="bvs" width="600" height="400">
 </p>  
 
-## Building a simple Neural Network:
+# Building a simple Neural Network:
 
-**Step 1:** Prepare the image data & preprocess it.
+## **Step 1:** Prepare the image data & preprocess it.
 
 Firstly, we will have to collect huge amount of data to get atleast a significant amount of accuracy. I've collected 300 images from google. While it cannot be considered as decent data at all, it is enough to demonstrate the process.
 
@@ -25,7 +25,7 @@ Input -> Folder containing collection of images.
 <img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" alt="Conversion" width="650" height="300">
 </p>
 
-**Step 2:** Convert Images into Data matrices.  
+## **Step 2:** Convert Images into Data matrices.  
 
 Our program cannot directly take image inputs. So, we need to convert it into a format which it understands.  
 *Numbers!*. Yes, it can handle numbers better than us (Unless you are an asian).  
@@ -34,11 +34,11 @@ It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py
 <img src="https://github.com/perseus784/BvS/blob/master/media/club.png" alt="Conversion to table" width="900" height="350">
 </p>  
  
-**Step 3:** Create a Neural Network Tensorflow graph.  
+## **Step 3:** Create a Neural Network Tensorflow graph.  
 Okay, this is gonna be long but interesting. Lets begin!  
 
-A Neural Network is a Bio-inspired mathematical model based on how our brains work.  
----
+***A Neural Network is a Bio-inspired mathematical model based on how our brains work.***  
+
 ***How do we learn?*** It was a mystery for millions of years ever since we were conscious. Our brains consist of billions of neurons. These neurons communicate to each other by Synapses. By recent advancements, it is found that whenever we learn new stuff these synapses between these neurons gets strong. *Thus, we learn!*  
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/brain-cell-neuron.gif" alt="neuron" width="500" height="350">
@@ -55,7 +55,7 @@ Firstly, we create a simple perceptron. A rudimentary model without any complexi
     Weights are nothing but likeablity of that respective input to be chosen.
     Weight is high for an input branch which gives max. output.
     Bias will give a basic shift to the output, it avoids nullification of a cell.
-An analogy:  
+*An Analogy:*  
 Inputs are from our senses or previous neurons.  
 Weights are the synapes that connects the neurons.  
 Function cells are neuron cells. 
@@ -100,7 +100,7 @@ It works the same way as shown above, except it has more layers of it's repeated
 
   
 
-**Step 4:** Train the model using the data matrices.  
+## **Step 4:** Train the model.  
 
 Now that we have created our Neural Network model, we throw in some inputs to it and get some output.  
 Awful surprise, the outputs are nowhere realted to the expected inputs at all!   
@@ -124,7 +124,10 @@ Paraphrasing: By how much magnitude our model is wrong about the predicted outpu
                  Cost = ∑ ( predicted - actual )²
 
 Once the Cost is calculated, we have to minimize it.  
-This minimisation can be done easily using many methods. Now it's an optimization problem.
+This minimisation can be done easily using many methods. Now it's an optimization problem.  
+**Gradient Descent** is the one most significant and effective technique in model optimization.
+### Gradient Descent:  
 
 
-**Step 5:** Test the model that was created with a new set of data.
+
+## **Step 5:** Test the model.
