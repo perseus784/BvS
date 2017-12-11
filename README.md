@@ -127,6 +127,21 @@ Once the Cost is calculated, we have to minimize it.
 This minimisation can be done easily using many methods. Now it's an optimization problem.  
 **Gradient Descent** is the one most significant and effective technique in model optimization.
 ### Gradient Descent:  
+We have to adjust those weights to give us a reduced total average cost or loss.
+
+For simplicity, We take one input and one output in this example.  
+To what values of inputs the the output is minimum?  
+If we start at random and take larger steps, the minima can never be found since steps are too big.  
+If we take smaller steps, the system may never converge.  
+To avoid this, we start at a random point of input and take big leaps. Using the gradient we can find the direction of the slope where it gives minimum output.
+Once a minima is reached, the upcoming steps should be smaller in size and find a minimal gradient.  
+Again for the next few steps, even smaller steps are taken and the minimum of that funtion is found. 
+This point is said to be the optimum point and the weights are adjusted according to this point.
+
+<p align="center">
+<img src="https://github.com/perseus784/BvS/blob/master/media/Sketch.png" alt="grad" width="1000" height="400">
+</p>
+
 
 
 
