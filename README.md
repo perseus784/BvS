@@ -18,8 +18,8 @@ Firstly, we will have to collect huge amount of data to get atleast a significan
 
 These Images may come of as different resolutions and formats. We don't need higher resolution images. So, we convert all of them into a standard 30 * 30 resolution in .jpg format.
 
-A simple program to do this can be found [**here**](https://github.com/perseus784/BvS/blob/master/image_process.py).  
-Input -> Folder containing collection of images.  
+> A simple program to do this can be found [**here**](https://github.com/perseus784/BvS/blob/master/image_process.py).  
+> Input -> Folder containing collection of images.  
 
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" alt="Conversion" width="650" height="300">
@@ -29,7 +29,7 @@ Input -> Folder containing collection of images.
 
 Our program cannot directly take image inputs. So, we need to convert it into a format which it understands.  
 *Numbers!*. Yes, it can handle numbers better than us (Unless you are an asian).  
-It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py).  
+> It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py).  
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/club.png" alt="Conversion to table" width="900" height="350">
 </p>  
@@ -37,7 +37,7 @@ It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py
 ## **Step 3:** Create a Neural Network Tensorflow graph.  
 Okay, this is gonna be long but interesting. Lets begin!  
 
-***A Neural Network is a Bio-inspired mathematical model based on how our brains work.***  
+> ***A Neural Network is a Bio-inspired mathematical model based on how our brains work.***  
 
 ***How do we learn?*** It was a mystery for millions of years ever since we were conscious. Our brains consist of billions of neurons. These neurons communicate to each other by Synapses. By recent advancements, it is found that whenever we learn new stuff these synapses between these neurons gets strong. *Thus, we learn!*  
 <p align="center">
@@ -56,9 +56,9 @@ Firstly, we create a simple perceptron. A rudimentary model without any complexi
     Weight is high for an input branch which gives max. output.
     Bias will give a basic shift to the output, it avoids nullification of a cell.
 *An Analogy:*  
-Inputs are from our senses or previous neurons.  
-Weights are the synapes that connects the neurons.  
-Function cells are neuron cells. 
+> Inputs are from our senses or previous neurons.  
+> Weights are the synapes that connects the neurons.  
+> Function cells are neuron cells. 
 
     Each Neuron cell has the functional equation,  
      Y= Wx+ b
@@ -77,7 +77,7 @@ It works the same way as shown above, except it has more layers of it's repeated
 <img src="https://github.com/perseus784/BvS/blob/master/media/neural_network.jpg" alt="DNN" width="700" height="350">
 </p>
  
- A Neural Network with three hidden layers and one output layer is built for our case[**[link]**](https://github.com/perseus784/BvS/blob/master/neural_network.py):
+> A Neural Network with three hidden layers and one output layer is built for our case[**[link]**](https://github.com/perseus784/BvS/blob/master/neural_network.py):
    
     #build the skeleton dictionaries
     hidden_lr1={'weight':tf.Variable(tf.random_normal([image_shape,n_hl1])),'biases':tf.Variable(tf.random_normal([n_hl1]))}
@@ -125,14 +125,14 @@ Paraphrasing: By how much magnitude our model is wrong about the predicted outpu
 
 Once the Cost is calculated, we have to minimize it.  
 This minimisation can be done easily using many methods. Now it's an optimization problem.  
-**Gradient Descent** is the one most significant and effective technique in model optimization.
+> **Gradient Descent** is the one most significant technique in model optimization.
 ### Gradient Descent:  
 We have to adjust those weights to give us a reduced total average cost or loss.
-
 For simplicity, We take one input and one output in this example.  
 To what values of inputs the the output is minimum?  
-If we start at random and take larger steps, the minima can never be found since steps are too big.  
-If we take smaller steps, the system may never converge.  
+> If we start at random and take larger steps, the minima can never be found since steps are too big.  
+> If we take smaller steps, the system may never converge.  
+
 To avoid this, we start at a random point of input and take big leaps. Using the gradient we can find the direction of the slope where it gives minimum output.
 Once a minima is reached, the upcoming steps should be smaller in size and find a minimal gradient.  
 Again for the next few steps, even smaller steps are taken and the minimum of that funtion is found. 
@@ -142,7 +142,22 @@ This point is said to be the optimum point and the weights are adjusted accordin
 <img src="https://github.com/perseus784/BvS/blob/master/media/Sketch.png" alt="grad" width="1000" height="400">
 </p>
 
+There are many gradient descent methods evolved from this idea itself.  
+Mainly there are,
+> - Simple Gradient Descent.
+> - Stochastic Gradient Descent.
+> - AdaGrad -> Adapdtive Gradient Descent, AdaDelta -> Adaptive Delta.
+> - Adam -> Adaptive Momentum Gradient Descent.
 
+By proof it is best to use Adam optimizer due to it's quick convergence.
 
+Though we have found optimum values, we have to tune the whole network sequence to adjust the weights in each layer.
+This tuning of the whole network is done by ***Back Propagation***.
+> *Back Propagation* is the step where we actually train the Network to our data.  
+
+*The last step, bare with me*
+### Back Propagation:
+
+> We are gonna do some serious stuff and it's called Math.
 
 ## **Step 5:** Test the model.
