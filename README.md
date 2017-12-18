@@ -161,4 +161,20 @@ This tuning of the whole network is done by ***Back Propagation***.
 
 > We are gonna do some serious stuff and it's called Math.
 
+By backpropogation we mean to tune the weights for a likely ouput. We are gonna do that by tuning the weights right from Output layer wayback to Input layer including all the hidden layers. This process is done using the partial derivative *Chain rule*.
+
+#### Chain Rule:  
+We know the optimum cost using the Gradient Descent method. Now, we can tune the previous weight of the layer by using a derivative.
+
+      For a perceptron: 
+            Applying chain rule, dC/dX = dC/dW * dW/dX
+      
+      For a 2-layered network:
+            
+            dC/dX= dC/dW3 * dW3/dA2 * dA2/dW2 * dW2/dA1 * dA1/dW1 * dW1/dX
+            where A1,A2 are activation functions.
+            W1,W2,W3 are weights that connect each layer respectively.
+            
+
+
 ## **Step 5:** Test the model.
