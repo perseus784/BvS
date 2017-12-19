@@ -167,14 +167,44 @@ By backpropogation we mean to tune the weights for a likely ouput. We are gonna 
 We know the optimum cost using the Gradient Descent method. Now, we can tune the previous weight of the layer by using a derivative.
 
       For a perceptron: 
-            Applying chain rule, dC/dX = dC/dW * dW/dX
+            Applying chain rule, dC/dW = dC/dA * dA/dW
       
       For a 2-layered network:
             
-            dC/dX= dC/dW3 * dW3/dA2 * dA2/dW2 * dW2/dA1 * dA1/dW1 * dW1/dX
+            dC/dW1= dC/dW3 * dW3/dA2 * dA2/dW2 * dW2/dA1 * dA1/dW1
             where A1,A2 are activation functions.
             W1,W2,W3 are weights that connect each layer respectively.
             
-
+> The below part is only for deeper understanding, you'll be fine even if you skip this part.
+     
+      Take a single perceptron example: 
+       Cost fucntion -> C
+       predicted -> A
+       actual -> Y
+       Raw value -> Z
+       Sigmoid -> Squashing function
+       
+       C = ( A - Y )²
+       Z = W * X + b
+       A = sigmoid(Z)
+       Now we have to find how the cost C is influenced by W,
+       
+                 dC/dW = dC/dA * dA/dZ * dZ/dW
+                 
+                 Taking derivaties from above equations,
+                                       dC/dA = 2(A-Y)
+                                       dA/dZ = sigmoid'(Z) [depends on which function you use]
+                                       dZ/dW = X
+       
+                  So, dC/dW = 2(A-Y) * X * sigmoid'(Z)
+        This is for a single perceptron. We can add more layers and neurons to make
+        a Neural Network that does Back Propagation.
+ 
+And the hard part is over!
+> I'll try to come up with even simpler and more graphical explanation in future.       
 
 ## **Step 5:** Test the model.
+>   "Your training is nothing, if you don't have the will to act" - Ra's Al Ghul
+
+
+
