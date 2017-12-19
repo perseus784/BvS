@@ -217,5 +217,5 @@ The accuracy of the network is dependent on the following factors :
 
 > So, that's how Batman wins!
 <p align="center">
-<img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="900" height="350">
+<img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="800" height="400">
 </p>
