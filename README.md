@@ -18,8 +18,8 @@ Firstly, we will have to collect huge amount of data to get atleast a significan
 
 These Images may come of as different resolutions and formats. We don't need higher resolution images. So, we convert all of them into a standard 30 * 30 resolution in .jpg format.
 
-> A simple program to do this can be found [**here**](https://github.com/perseus784/BvS/blob/master/image_process.py).  
-> Input -> Folder containing collection of images.  
+*A simple program to do this can be found [**here**](https://github.com/perseus784/BvS/blob/master/image_process.py).*  
+*Input -> Folder containing collection of images.*
 
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" alt="Conversion" width="650" height="300">
@@ -29,7 +29,7 @@ These Images may come of as different resolutions and formats. We don't need hig
 
 Our program cannot directly take image inputs. So, we need to convert it into a format which it understands.  
 *Numbers!*. Yes, it can handle numbers better than us (Unless you are an asian).  
-> It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py).  
+*It is done [**here**](https://github.com/perseus784/BvS/blob/master/data_prep.py).*  
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/club.png" alt="Conversion to table" width="900" height="350">
 </p>  
@@ -77,13 +77,13 @@ It works the same way as shown above, except it has more layers of it's repeated
 <img src="https://github.com/perseus784/BvS/blob/master/media/neural_network.jpg" alt="DNN" width="700" height="350">
 </p>
  
-> A Neural Network with three hidden layers and one output layer is built for our case[**[link]**](https://github.com/perseus784/BvS/blob/master/neural_network.py):
+*A Neural Network with three hidden layers and one output layer is built for our case[**[link]**](https://github.com/perseus784/BvS/blob/master/neural_network.py):*
    
     #build the skeleton dictionaries
-    hidden_lr1={'weight':tf.Variable(tf.random_normal([image_shape,n_hl1])),'biases':tf.Variable(tf.random_normal([n_hl1]))}
-    hidden_lr2={'weight':tf.Variable(tf.random_normal([n_hl1,n_hl2])),'biases':tf.Variable(tf.random_normal([n_hl2]))}
-    hidden_lr3={'weight':tf.Variable(tf.random_normal([n_hl2,n_hl3])),'biases':tf.Variable(tf.random_normal([n_hl3]))}
-    output_layer={'weight':tf.Variable(tf.random_normal([n_hl3,groups])),'biases':tf.Variable(tf.random_normal([groups]))}
+    hidden_lr1={'w':tf.Variable(tf.random_normal([image_shape,n_hl1])),'b':tf.Variable(tf.random_normal([n_hl1]))}
+    hidden_lr2={'w':tf.Variable(tf.random_normal([n_hl1,n_hl2])),'b':tf.Variable(tf.random_normal([n_hl2]))}
+    hidden_lr3={'w':tf.Variable(tf.random_normal([n_hl2,n_hl3])),'b':tf.Variable(tf.random_normal([n_hl3]))}
+    output_layer={'w':tf.Variable(tf.random_normal([n_hl3,groups])),'b':tf.Variable(tf.random_normal([groups]))}
 
     #Operation -> Y=Wx+b
     l1=tf.add(tf.matmul(data,hidden_lr1['weight']),hidden_lr1['biases'])
@@ -98,7 +98,6 @@ It works the same way as shown above, except it has more layers of it's repeated
     #Y can be obtained from this layer 
     output = tf.add(tf.matmul(l3, output_layer['weight']), output_layer['biases'])
 
-  
 
 ## **Step 4:** Train the model.  
 
@@ -143,12 +142,13 @@ This point is said to be the optimum point and the weights are adjusted accordin
 <img src="https://github.com/perseus784/BvS/blob/master/media/Sketch.png" alt="grad" width="1000" height="400">
 </p>
 
-There are many gradient descent methods evolved from this idea itself.  
+There are many gradient descent methods evolved from this idea itself with small tweaks.  
 Mainly there are,
-> - Simple Gradient Descent.
-> - Stochastic Gradient Descent.
-> - AdaGrad -> Adapdtive Gradient Descent, AdaDelta -> Adaptive Delta.
-> - Adam -> Adaptive Momentum Gradient Descent.
+
+    - Simple Gradient Descent.
+    - Stochastic Gradient Descent.
+    - AdaGrad -> Adapdtive Gradient Descent, AdaDelta -> Adaptive Delta.
+    - Adam -> Adaptive Momentum Gradient Descent.
 
 By proof it is best to use Adam optimizer due to it's quick convergence.
 
@@ -175,7 +175,7 @@ We know the optimum cost using the Gradient Descent method. Now, we can tune the
             where A1,A2 are activation functions.
             W1,W2,W3 are weights that connect each layer respectively.
             
-> The below part is only for deeper understanding, you'll be fine even if you skip this part.
+*The below part is only for deeper understanding, you'll be fine even if you skip this.*  
      
       Take a single perceptron example: 
        Cost fucntion -> C
@@ -183,12 +183,11 @@ We know the optimum cost using the Gradient Descent method. Now, we can tune the
        actual -> Y
        Raw value -> Z
        Sigmoid -> Squashing function
+                    C = ( A - Y )²
+                    Z = W * X + b
+                    A = sigmoid(Z)
        
-       C = ( A - Y )²
-       Z = W * X + b
-       A = sigmoid(Z)
        Now we have to find how the cost C is influenced by W,
-       
                  dC/dW = dC/dA * dA/dZ * dZ/dW
                  
                  Taking derivaties from above equations,
@@ -201,10 +200,22 @@ We know the optimum cost using the Gradient Descent method. Now, we can tune the
         a Neural Network that does Back Propagation.
  
 And the hard part is over!
-> I'll try to come up with even simpler and more graphical explanation in future.       
+*I'll try to come up with even simpler and more graphical explanation in future.*  
 
 ## **Step 5:** Test the model.
 >   "Your training is nothing, if you don't have the will to act" - Ra's Al Ghul
 
+Now, test the model using some images that are not at all used in the training process.
+Our output generated is measured with the actual ones and average error is found.
+This gives the accuracy of our network.
+The accuracy of the network is dependent on the following factors :
+- Training data size
+- Optimization method that we have used
+- Finding optimum features for the network like No. of layers and Neurons for each of them.
 
+*I'll try to explain everything with even more clarity in future.*
 
+> So, that's how Batman wins!
+<p align="center">
+<img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="900" height="350">
+</p>
