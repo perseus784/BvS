@@ -80,14 +80,14 @@ If you want to edit something, you can do it using config.py file:
           model_save_name='checkpoints\\'
 
 
-Now our work is simple from here, just run the program train.py
-For me it took 8 hrs for 300 epochs. I did it in my laptop which has i5 processors, 8 Gigabytes of RAM, Nvidia geforce 930M 2GB setup.
-Feel free to play with the variables.
-Saving our model:
-Once training is over, we can see a folder named checkpoints is created which contains our model for which we trained. These two simple lines does that for us in tensorflow:
-saver = tf.train.Saver(max_to_keep=4)
-saver.save(session, model_save_name)
-[Get model here](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6) 
+**Run** ***train.py***
+For me it took **8 hrs for 300 epochs**. I did it in my laptop which has **i5 processors, 8 Gigabytes of RAM, Nvidia geforce 930M 2GB setup**.
+
+### Saving our model:
+Once training is over, we can see a folder named checkpoints is created which contains our model for which we trained. These two simple lines does that for us in tensorflow:  
+          saver = tf.train.Saver(max_to_keep=4)
+          saver.save(session, model_save_name)
+You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6) 
 
 # Inference time:  
 
@@ -101,13 +101,14 @@ saver.save(session, model_save_name)
     result=session.run(network, feed_dict=feed_dict_testing)
     print(result)
     
-You can see the results as [1,0](Batman), [0,1](Superman) corresponding to the index. please note that this is not a output in one-hot encoding. 
+You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
+*Please note that this is not a output in one-hot encoding. *
 
 # Accuracy:
 It is actually pretty good. It is almost right all the time. I even gave it an image with both Batman and Superman, it actually gave me values which are almost of same magnitude(after removing the sigmoid layer that we added just before).
+*Comment out **network=tf.nn.sigmoid(network)** in predict.py to see the real magnitudes as this will only give squashed outputs.*
 
-
-From here on you can do whatever you want with those values. Initially loading the model will take some time(70 seconds) but once the model is loaded, you can put a for loop or something to throw in images and get output in a second or two!
+From here on you can do whatever you want with those values. Initially loading the model will take some time(70 seconds) but once the model is loaded, you can put a for loop or something to throw in images and *get output in a second or two!*
 
 # Tensorboard:
 I have added some additional lines in the training code for tensorboard options. Using tensorboard we can track progress of our training even while training and after. You can also see your network structure and all the other components inside it.It is very useful for visualizing the things happening.
@@ -116,13 +117,15 @@ To start it, just go to the directory and open command line,
     tensorboard --logdir checkpoints
     
 You should see the following ,
+
+
 Now type the same address in in your browser. Your tensorboard is now started. Play with it.
+
 # Graph Structure Visualization:
 
 
 # Future Implementations:
 While this works for Binary classification, it will also work for Multiclass classification but not as well. We might need to alter architecture and build a larger model depending on the number of classes we want.
-And Batman wins!!!
 
 
 > So, that's how Batman wins!
