@@ -135,23 +135,22 @@ To run a simple prediction,
 * Download the model files and extract in the same folder.
 * Run [predict.py](https://github.com/perseus784/BvS/blob/master/predict.py).  
 
-              image='sup.jpg'
-              img=cv2.imread(image)
-              session=tf.Session()
-              img=cv2.resize(img,(100,100))
-              img=img.reshape(1,100,100,3)
-              labels = np.zeros((1, 2))
-              # Creating the feed_dict that is required to be feed the io:
-              feed_dict_testing = {im_ph: img, label_ph: labels}
-              result=session.run(network, feed_dict=feed_dict_testing)
-              print(result)
-  
+          image='sup.jpg'
+          img=cv2.imread(image)
+          session=tf.Session()
+          img=cv2.resize(img,(100,100))
+          img=img.reshape(1,100,100,3)
+          labels = np.zeros((1, 2))
+          # Creating the feed_dict that is required to be feed the io:
+          feed_dict_testing = {im_ph: img, label_ph: labels}
+          result=session.run(network, feed_dict=feed_dict_testing)
+          print(result)  
+
+You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/output_screenshot.png" width="800" height="400">
 </p>  
 
-
-You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
 *Please note that this is not one-hot encoding. *  
 
 # Accuracy:
