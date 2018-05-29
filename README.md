@@ -146,12 +146,12 @@ To run a simple prediction,
           result=session.run(network, feed_dict=feed_dict_testing)
           print(result)  
 
-You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
 <p align="center">
-<img src="https://github.com/perseus784/BvS/blob/master/media/output_screenshot.png" width="800" height="400">
-</p>  
+<img src="https://github.com/perseus784/BvS/blob/master/media/output_screeenshot.png" width="800" height="400">
+</p>   
 
-*Please note that this is not one-hot encoding. *  
+You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
+*Please note that this is not one-hot encoding.*  
 
 # Accuracy:
 It is actually pretty good. It is almost right all the time. I even gave it an image with both Batman and Superman, it actually gave me values which are almost of same magnitude(after removing the sigmoid layer that we added just before).  
