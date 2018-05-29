@@ -3,7 +3,7 @@
 An Image classifier to identify whether the given image is Batman or Superman.  
 
 # What are we gonna do:  
-* We will build a 3 layered **community standard CNN Image classifier** to classify whether the given image is a image of Batman or Superman.
+* We will build a 3 layered **Community Standard CNN Image classifier** to classify whether the given image is a image of Batman or Superman.
 * Learn how to build a model from scratch in Tensoflow which is accurate.
 * How to train and test it.
 * How to save and use it further.  
@@ -82,7 +82,8 @@ With dimentional informations:
 </p>
 
 # Training:
-Images: we have images from both classes in their respective folders after augmentation.  
+* Clone this repo.
+* Put the images in thier respective folders in *rawdata*.  
 
     rawdata/batman: 3810 images
     rawdata/superman: 3810 images
@@ -93,10 +94,9 @@ Our file structure should look like this,
 <img src="https://github.com/perseus784/BvS/blob/master/media/fstr.png" width="300" height="400">
 </p>  
 
-*data folder will be generated automatically by trainer.py*  
+***data*** folder will be generated automatically by trainer.py
 
-### Configuration:  
-If you want to edit something, you can do it using [this](https://github.com/perseus784/BvS/blob/master/config.py) file:  
+* **Configuration:**  If you want to edit something, you can do it using [this](https://github.com/perseus784/BvS/blob/master/config.py) file. 
 
           raw_data='rawdata'
           data_path='data'
@@ -110,8 +110,9 @@ If you want to edit something, you can do it using [this](https://github.com/per
           model_save_name='checkpoints\\'
 
 
-**Run** ***[trainer.py](https://github.com/perseus784/BvS/blob/master/trainer.py)***  
-For me it took **8 hrs for 300 epochs**. I did it in my laptop which has **i5 processors, 8 Gigabytes of RAM, Nvidia geforce 930M 2GB setup**. You can end the process anytime if saturated, as the model will be saved frequently.  
+* **Run** ***[trainer.py](https://github.com/perseus784/BvS/blob/master/trainer.py)***.
+* Wait for few hours.
+* For me it took **8 hrs for 300 epochs**. I did it in my laptop which has **i5 processors, 8 Gigabytes of RAM, Nvidia geforce 930M 2GB setup**. You can end the process anytime if saturated, as the model will be saved frequently.  
   
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/train_info.png" width="800" height="400">
