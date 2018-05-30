@@ -8,6 +8,7 @@ An Image classifier to identify whether the given image is Batman or Superman.
 * How to train and test it.
 * How to save and use it further.  
 
+Indepth explanation of each section:  
 [Medium post with detailed step by step explanation](fill in) for deeper understanding of CNNs and architecture of the network.
 
 # Data:
@@ -35,15 +36,18 @@ An Image classifier to identify whether the given image is Batman or Superman.
 * Create folders with their respective class names and put all the images in their respective folders.
 * Run [this](https://github.com/perseus784/BvS/blob/master/preprocessing.py) file in the same directory as rawdata.
 * This will resize all the images to a standard resolution and same format and put it in a new folder named data.  
-<p align="center">
+**Note:** As I embedded it in *trainer.py*, it is unnecessary to run it explicitly.  
+
+<p align="left">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" width="400" height="200">
 <img src="https://github.com/perseus784/BvS/blob/master/media/file_structure.png" width="300" height="400">
 </p>  
 
-**Note:** As I embedded it in *trainer.py*, it is unnecessary to run it explicitly.
 
 # Architecture:
-### A Simple Architecture:  
+### A Simple Architecture: 
+> For detailed explanation of Architecture and CNNs read the medium [post]()  
+
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convolution_nn_medium_post.png" width="800" height="400">
 </p>  
@@ -84,9 +88,9 @@ With dimentional informations:
 # Training:
 * Clone this repo.
 * Put the images in thier respective folders in *rawdata*.  
-
-    rawdata/batman: 3810 images
-    rawdata/superman: 3810 images
+  
+       rawdata/batman: 3810 images
+       rawdata/superman: 3810 images
 
 Our file structure should look like this,  
 <p align="left">
@@ -110,7 +114,7 @@ Our file structure should look like this,
           model_save_name='checkpoints\\'
 
 
-* **Run** ***[trainer.py](https://github.com/perseus784/BvS/blob/master/trainer.py)***.
+* **Run** [trainer.py](https://github.com/perseus784/BvS/blob/master/trainer.py).
 * Wait for few hours.
 * For me it took **8 hrs for 300 epochs**. I did it in my laptop which has **i5 processors, 8 Gigabytes of RAM, Nvidia geforce 930M 2GB setup**. You can end the process anytime if saturated, as the model will be saved frequently.  
   
@@ -128,7 +132,7 @@ Once training is over, we can see a folder named checkpoints is created which co
           saver = tf.train.Saver(max_to_keep=4)
           saver.save(session, model_save_name)  
           
-You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6).    
+You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6)   
 
 # Inference time:  
 To run a simple prediction,
@@ -159,7 +163,8 @@ It is actually pretty good. It is almost right all the time. I even gave it an i
 
 *Comment out **network=tf.nn.sigmoid(network)** in predict.py to see the real magnitudes as this will only give squashed outputs.*  
 
-From here on you can do whatever you want with those values. Initially loading the model will take some time(70 seconds) but once the model is loaded, you can put a for loop or something to throw in images and *get output in a second or two!*
+From here on you can do whatever you want with those values.  
+Initially loading the model will take some time(70 seconds) but once the model is loaded, you can put a for loop or something to throw in images and *get output in a second or two!*
 
 # Tensorboard:
 I have added some additional lines in the training code for tensorboard options. Using tensorboard we can track progress of our training even while training and after. You can also see your network structure and all the other components inside it.*It is very useful for visualizing the things happening.*
@@ -181,7 +186,6 @@ Yeah, you can see our entire model with dimensions in each layer and operations 
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/tensorboard_graph.png" width="800" height="400">
 </p>
-
 
 # Future Implementations:
 While this works for Binary classification, it will also work for Multiclass classification but not as well. We might need to alter architecture and build a larger model depending on the number of classes we want.
