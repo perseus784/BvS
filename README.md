@@ -1,6 +1,6 @@
 # BvS
 **Dawn of AI**  
-An Image classifier to identify whether the given image is Batman or Superman.  
+An Image classifier to identify whether the given image is Batman or Superman using a CNN with high accuracy.  
 
 # What are we gonna do:  
 * We will build a 3 layered **Community Standard CNN Image classifier** to classify whether the given image is a image of Batman or Superman.
