@@ -132,7 +132,35 @@ Once training is over, we can see a folder named checkpoints is created which co
           saver = tf.train.Saver(max_to_keep=4)
           saver.save(session, model_save_name)  
           
-You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6)   
+You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6)  
+
+We have three files in our checkpoints folder,
+* .meta file - it has your graph structure saved.
+* .index - it identifies the respective checkpoint file.
+* .data - it stores the values of all the variables.
+
+How to use it?
+Tensorflow is so well built that, it does all the heavy lifting for us. We just have to write four simple lines to load and infer our model.  
+
+          #Create a saver object to load the model
+          saver = tf.train.import_meta_graph
+                                          (os.path.join(model_folder,'.meta'))
+          #restore the model from our checkpoints folder
+          saver.restore(session,os.path.join('checkpoints','.\\'))
+          #Create graph object for getting the same network architecture
+          graph = tf.get_default_graph()
+          #Get the last layer of the network by it's name which includes all the previous layers too
+          network = graph.get_tensor_by_name("add_4:0")
+Yeah, simple. Now that we got our network as well as the tuned values, we have to pass an image to it using the same placeholders(Image, labels).  
+
+    im_ph= graph.get_tensor_by_name("Placeholder:0")
+    label_ph = graph.get_tensor_by_name("Placeholder_1:0")
+    
+If you run it now, you can see the output as [1234,-4322] like that. While this is right as the maximum value index represents the class, this is not as convenient as representing it in 1 and 0. Like this [1,0]. For that we should include a line of code before running it,   
+
+    network=tf.nn.sigmoid(network)
+    
+While we could have done this in our training architecture itself and nothing would have changed, I want to show you that, you can add layers to our model even now, even in prediction stage. Flexibility.  
 
 # Inference time:  
 To run a simple prediction,
