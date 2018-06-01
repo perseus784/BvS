@@ -167,6 +167,7 @@ While we could have done this in our training architecture itself and nothing wo
 
 # Inference time:  
 > Your training is nothing, If you don't have the will to act - Ra's Al Ghul.  
+
 To run a simple prediction,
 * Edit the image name in [predict.py](https://github.com/perseus784/BvS/blob/master/predict.py).
 * Download the model files and extract in the same folder.
