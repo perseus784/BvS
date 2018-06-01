@@ -89,6 +89,7 @@ With dimentional informations:
 
 # Training:
 * Clone this repo.
+* Do the Augmentation.
 * Put the images in thier respective folders in *rawdata*.  
   
        rawdata/batman: 3810 images
@@ -183,7 +184,7 @@ To run a simple prediction,
           print(result)  
 
 <p align="center">
-<img src="https://github.com/perseus784/BvS/blob/master/media/output_screeenshot.png" width="800" height="400">
+<img src="https://github.com/perseus784/BvS/blob/master/media/output_screeenshot.png" width="800" height="300">
 </p>   
 
 You can see the results as [1,0]{Batman}, [0,1]{Superman} corresponding to the index.  
@@ -206,7 +207,7 @@ To start it, just go to the directory and open command line,
 You should see the following,
 
 <p align="center">
-<img src="https://github.com/perseus784/BvS/blob/master/media/Inkedtensorboard_start_LI.jpg" width="800" height="400">
+<img src="https://github.com/perseus784/BvS/blob/master/media/Inkedtensorboard_start_LI.jpg" width="800" height="300">
 </p>
 
 Now type the same address in in your browser. Your tensorboard is now started. Play with it.
@@ -226,4 +227,4 @@ While this works for Binary classification, it will also work for Multiclass cla
 <img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="800" height="400">
 </p>  
 
-If any suggestions, doubts, clarifications please 
+For any suggestions, doubts, clarifications please mail: ipaar3@gmail.com or raise an issue!.
