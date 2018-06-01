@@ -1,6 +1,7 @@
 # BvS
 **Dawn of AI**  
-An Image classifier to identify whether the given image is Batman or Superman using a CNN with high accuracy.  
+An Image classifier to identify whether the given image is Batman or Superman using a CNN with high accuracy. 
+(Without using Dogs Vs Cats, From getting images from google to saving our trained model for reuse.)  
 
 # What are we gonna do:  
 * We will build a 3 layered **Community Standard CNN Image classifier** to classify whether the given image is a image of Batman or Superman.
@@ -9,7 +10,7 @@ An Image classifier to identify whether the given image is Batman or Superman us
 * How to save and use it further.  
 
 Indepth explanation of each section:  
-[Medium post with detailed step by step explanation](fill in) for deeper understanding of CNNs and architecture of the network.
+[Medium post with detailed step by step explanation](https://medium.com/@ipaar3/how-i-built-a-convolutional-image-classifier-using-tensorflow-from-scratch-f852c34e1c95) for deeper understanding of CNNs and architecture of the network.
 
 # Data:
 
@@ -46,7 +47,8 @@ Indepth explanation of each section:
 
 # Architecture:
 ### A Simple Architecture: 
-> For detailed explanation of Architecture and CNNs read the medium [post]()  
+> For detailed explanation of Architecture and CNNs please read the medium [post](https://medium.com/@ipaar3/how-i-built-a-convolutional-image-classifier-using-tensorflow-from-scratch-f852c34e1c95).  
+I've explained CNNs in depth over there, I highly recommend reading it.  
 
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convolution_nn_medium_post.png" width="800" height="400">
@@ -163,6 +165,7 @@ If you run it now, you can see the output as [1234,-4322] like that. While this 
 While we could have done this in our training architecture itself and nothing would have changed, I want to show you that, you can add layers to our model even now, even in prediction stage. Flexibility.  
 
 # Inference time:  
+> Your training is nothing, If you don't have the will to act - Ra's Al Ghul.  
 To run a simple prediction,
 * Edit the image name in [predict.py](https://github.com/perseus784/BvS/blob/master/predict.py).
 * Download the model files and extract in the same folder.
@@ -221,4 +224,6 @@ While this works for Binary classification, it will also work for Multiclass cla
 > So, that's how Batman wins!
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="800" height="400">
-</p>
+</p>  
+
+If any suggestions, doubts, clarifications please 
