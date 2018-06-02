@@ -25,8 +25,8 @@ Indepth explanation of each section:
 * 300 is not a number at all in Deep learning. So, we must Augment the images to get more images from whatever we collected.  
 * You can use the following to do it easily, [Augmentor](https://github.com/mdbloice/Augmentor).  
 * [This](https://github.com/perseus784/BvS/blob/master/augment.py) is the code I've used for augmenting my images.   
-* Same image, augmented using various transformations. I had 3500 images each after augmentation for each class.    
-* *Careful: While Augmenting, be careful about what kind of transformation you use. You can mirror flip a Bat Logo but cannot make it upside down.*  
+* Same image, augmented using various transformations. I had 3500 images each after augmentation for each class.  
+*Careful: While Augmenting, be careful about what kind of transformation you use. You can mirror flip a Bat Logo but cannot make it upside down.*  
 
 <p align="center">
 <img src="https://github.com/perseus784/BvS/blob/master/media/augment.png" width="800" height="400">
@@ -38,6 +38,7 @@ Indepth explanation of each section:
 * Run [this](https://github.com/perseus784/BvS/blob/master/preprocessing.py) file in the same directory as rawdata.
 * This will resize all the images to a standard resolution and same format and put it in a new folder named data.  
 **Note:** As I embedded it in *trainer.py*, it is unnecessary to run it explicitly.  
+**Update** :You can get the **data** folder itself from [here(50mb)](https://drive.google.com/open?id=1GUPBBdLlqStnxjhISkxT1qOf1XPnmRcF). Just download and extract!.
 
 <p align="left">
 <img src="https://github.com/perseus784/BvS/blob/master/media/convert.png" width="400" height="200">
@@ -90,10 +91,12 @@ With dimentional informations:
 # Training:
 * Clone this repo.
 * Do the Augmentation.
-* Put the images in thier respective folders in *rawdata*.  
+* Put the images in thier respective folders in *rawdata*. 
   
        rawdata/batman: 3810 images
        rawdata/superman: 3810 images
+
+**Update** :You can get the **data** folder itself from [here(50mb)](https://drive.google.com/open?id=1GUPBBdLlqStnxjhISkxT1qOf1XPnmRcF). Just download and extract!.  
 
 Our file structure should look like this,  
 <p align="left">
@@ -101,7 +104,7 @@ Our file structure should look like this,
 <img src="https://github.com/perseus784/BvS/blob/master/media/fstr.png" width="300" height="400">
 </p>  
 
-***data*** folder will be generated automatically by trainer.py
+***data*** folder will be generated automatically by trainer.py from raw_data if *data* folder does not exist. 
 
 * **Configuration:**  If you want to edit something, you can do it using [this](https://github.com/perseus784/BvS/blob/master/config.py) file. 
 
