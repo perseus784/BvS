@@ -45,7 +45,7 @@ def trainer(network,number_of_images):
 
             print('Epoch number ', epoch, 'batch', batch, 'complete')
             writer.add_summary(summary,counter)
-        saver.save(session, model_save_name)
+        saver.save(session, os.path.join(model_save_name))
 
 if __name__=="__main__":
     tools=utils()
