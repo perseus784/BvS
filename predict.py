@@ -5,7 +5,7 @@ import numpy as np
 from build_model import model_tools
 
 model=model_tools()
-model_folder='checkpoints\\'
+model_folder='checkpoints'
 image='sup.jpg'
 img=cv2.imread(image)
 session=tf.Session()
