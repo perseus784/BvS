@@ -14,4 +14,4 @@ color_channels=3
 epochs=300
 batch_size=10
 batch_counter=0
-model_save_name='checkpoints\\'
+model_save_name='checkpoints'
