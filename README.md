@@ -9,6 +9,12 @@ An Image classifier to identify whether the given image is Batman or Superman us
 * How to train and test it.
 * How to save and use it further.  
 
+# Config:
+* Python 3.5
+* Tensorflow 1.5.0
+* CUDA 9.0
+* CUDANN 7.0.5
+
 Indepth explanation of each section:  
 [Medium post with detailed step by step explanation](https://medium.com/@ipaar3/how-i-built-a-convolutional-image-classifier-using-tensorflow-from-scratch-f852c34e1c95) for deeper understanding of CNNs and architecture of the network.
 
