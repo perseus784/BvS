@@ -9,7 +9,7 @@ An Image classifier to identify whether the given image is Batman or Superman us
 * How to train and test it.
 * How to save and use it further.  
 
-# Config:
+**Setup:**
 * Python 3.5
 * Tensorflow 1.5.0
 * CUDA 9.0
