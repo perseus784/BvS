@@ -237,4 +237,5 @@ While this works for Binary classification, it will also work for Multiclass cla
 <img src="https://github.com/perseus784/BvS/blob/master/media/lego-batman-movie-tuxedo.jpg" alt="Batwin" width="800" height="400">
 </p>  
 
+Please Star the repo if you like it.  
 For any suggestions, doubts, clarifications please mail: ipaar3@gmail.com or raise an issue!.
