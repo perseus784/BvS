@@ -144,7 +144,7 @@ Once training is over, we can see a folder named checkpoints is created which co
           saver = tf.train.Saver(max_to_keep=4)
           saver.save(session, model_save_name)  
           
-You can get my pretrained model [here.](https://drive.google.com/open?id=18ZzIYCkdTfYQQ1-tzpcfMuxzDwOJ0CU6)  
+You can get my pretrained model [here.](https://drive.google.com/file/d/1l9_ByLxtGqRMJxWvNr9Ls7XDFRxsqywN/view?usp=sharing)  
 
 We have three files in our checkpoints folder,
 * .meta file - it has your graph structure saved.
