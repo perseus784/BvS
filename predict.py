@@ -21,7 +21,8 @@ saver = tf.train.import_meta_graph(os.path.join(model_folder,'.meta'))
 #Uncomment the following line for running on a windows machine
 #saver.restore(session,os.path.join(model_folder,'.\\'))
 
-#Uncomment the following line for running on a linux machine
+#The following line is for running on a linux machine, comment it out if running on a windows machine
+saver.restore(session,os.path.join(model_folder,'./'))
 
 #Create graph object for getting the same network architecture
 graph = tf.get_default_graph()
