@@ -1,12 +1,13 @@
 import cv2
 import tensorflow as tf
 import os
+import sys
 import numpy as np
 from build_model import model_tools
 
 model=model_tools()
 model_folder='checkpoints'
-image='sup.jpg'
+image=sys.argv[1]
 img=cv2.imread(image)
 session=tf.Session()
 img=cv2.resize(img,(100,100))
